@@ -1,0 +1,5 @@
+GET http://jservice.io/api/random/
+###
+GET http://jservice.io/api/clues
+###
+GET http://jservice.io/api/category/?id=3170
