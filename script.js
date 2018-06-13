@@ -1,0 +1,1 @@
+const grid1 = new jeopardyGrid( 6, 5, document.getElementById("gridHolder"))

@@ -1,0 +1,41 @@
+body {
+    background-color: mistyrose;
+}
+.board {
+    display: flex;
+    justify-content: center;
+    background-color: blue;
+    margin-bottom: 20px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.cell {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    border: 3px solid black;
+}
+
+.lightcell {
+    
+}
+
+#output {
+    display: flex;
+    background-color: blue;
+    color: azure;
+    border: 3px solid lightgray;
+    margin-bottom: 20px;
+    width: fit-content;
+    height: fit-content;
+}
+
+h1 {
+    display: flex;
+    
+}
+#input {
+    background-color: black;
+    color: azure;
+}
