@@ -2,11 +2,15 @@ h1 {
     color: blue;
 }
 
+main {
+    display: flex;
+}
 section {
-    width: 320px;
-    height:60px;
+    width: 60px;
+    height: 320px;
     border: 1pt black solid;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 1px;
@@ -24,4 +28,9 @@ article {
     margin: 1px;
     font-size: 50%;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
 }

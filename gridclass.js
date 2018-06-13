@@ -58,9 +58,8 @@ Grid.prototype = {
             fetch(catURL)
                 .then(res => res.json())
                 .then(category => {
-                    // console.log("Per col", category)
+                    console.log("Per col", category)
 
-                    this.sampleArray[colIndex] = category.clues
                     const colElement = document.createElement("section")
                     colElement.dataset.col = colIndex
                     this.element.appendChild(colElement)
