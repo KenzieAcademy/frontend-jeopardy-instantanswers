@@ -1,0 +1,5 @@
+GET http://jservice.io/api/categories?count=100
+
+###
+
+GET http://jservice.io/api/category?id=11545

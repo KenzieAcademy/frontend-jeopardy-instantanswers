@@ -1,0 +1,30 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+}
+
+h1 {
+    color: blue;
+}
+
+.cell {
+    width: 150px;
+    height: 75px;
+    border: solid 2px black;
+    display: flex;
+    background-color: blue;
+}
+
+.row {
+    display: flex;
+}
+
+#jeopardygrid {
+    display: flex;
+    flex-direction: column;
+    border: solid 2px black;
+}
