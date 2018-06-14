@@ -34,3 +34,13 @@ article {
     align-items: center;
 
 }
+
+article:hover{
+background-color: green;
+}
+#displayPicture {
+    height: 200px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: 100%
+}

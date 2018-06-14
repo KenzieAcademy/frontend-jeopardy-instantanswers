@@ -1,9 +1,9 @@
-"use strict";
+// "use strict";
 
-function JeopardyGrid(height, width, gridElement) {
-    Call.Grid(this, height, width, gridElement)
-}
+// function JeopardyGrid(height, width, gridElement) {
+//     Call.Grid(this, height, width, gridElement)
+// }
 
-JeopardyGrid.prototype.fillGrid = function () {
+// JeopardyGrid.prototype.fillGrid = function () {
 
-}
+// }

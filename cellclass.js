@@ -1,9 +1,9 @@
-function Cell(rowIndex, colIndex, parent, grid, newCategory) {
+function Cell(rowIndex, colIndex, parent, grid, category) {
     this.rowIndex = rowIndex;
     this.colIndex = colIndex;
     this.parent = parent;
     this.grid = grid;
-    this.newCategory = newCategory
+    this.category = category
     this.createCell();
 }
 
@@ -12,16 +12,21 @@ Cell.prototype.createCell = function () {
     this.element.dataset.row = this.rowIndex;
     this.element.dataset.col = this.colIndex;
     this.parent.appendChild(this.element);
-    console.log('hi mom', this.newCategory)
+    // console.log('hi mom', this.newCategory)
     // console.log(this.grid)
     this.addText(this.element)
 }
 
 Cell.prototype.addText = function (element) {
     if (this.colIndex === 0) {
-        this.element.textContent = this.newCategory.title
+        this.element.textContent = this.category.title
     } else {
-        this.element.textContent = this.newCategory.clues[this.colIndex - 1].value
+        this.element.textContent = Number(this.colIndex * 100)
     }
+
+}
+
+Cell.prototype.displayQuestion = function (clickedCell) {
+
 
 }
