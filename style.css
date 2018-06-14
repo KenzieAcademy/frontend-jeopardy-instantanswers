@@ -1,0 +1,67 @@
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+    display: inline-flex;
+    flex-direction: column;
+    border: black solid 1px;
+    pointer-events: none;
+    padding: 1vmin;
+    background-color: gray;
+}
+
+.row {
+    display: flex;
+    pointer-events: none; 
+}
+
+.row[data-row-index='0']{
+  margin-bottom: 1vmin;
+}
+
+.cell {
+    height: 15vmin;
+    width: 15vmin;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+    border: 1px black solid;
+    text-align: center;
+    font-size: 4vmin;
+    color: yellow;
+}
+
+.cell[data-row='0']{
+  font-size: 2.3vmin;
+}
+
+.cell[data-is-clicked='true']{
+  font-size: 1.4vmin;
+}
+
+#values , #category , #question {
+  align-self: flex-start;
+  margin-left: 3vmin;
+  margin-top: 2vmin;
+}
+
+#values{
+  padding-bottom: 2vmin;
+  border-bottom: black 1px solid;
+}
+
+#user {
+  display: flex;
+  flex-direction: row;
+  margin: 2vmin;
+} 
+
+#totalpoints{
+  margin-left: 3vmin;
+}
