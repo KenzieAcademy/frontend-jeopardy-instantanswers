@@ -32,9 +32,10 @@ function checkAnswer() {
 	console.log(answerInput, "--", questionBundle.answer)
 	if (answerInput == questionBundle.answer) {
 
-		score = score + questionBundle.value;
-		let scoreToAppend = document.createTextNode(score);
-		userScore.appendChild(scoreToAppend);
+		score = Number(score) + Number(questionBundle.value);
+		// let scoreToAppend = document.createTextNode(score);
+		// userScore.appendChild(scoreToAppend);
+		userScore.textContent = score;
 		alert("That is.....Correct! You've earned " + questionBundle.value + " points!");
 		fetch('http://jservice.io/api/random')
 			.then(function (responseObject) {
@@ -43,8 +44,9 @@ function checkAnswer() {
 			.then(function (hydratedBody) {
 				console.log(hydratedBody[0]);
 				questionBundle = hydratedBody[0];
-				let question = document.createTextNode(questionBundle.question);
-				outputQuestion.appendChild(question);
+				// let question = document.createTextNode(questionBundle.question);
+				// outputQuestion.appendChild(question);
+				outputQuestion.textContent = questionBundle.question;
 			});
 
 	} else {
