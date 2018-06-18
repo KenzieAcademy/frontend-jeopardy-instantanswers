@@ -3,11 +3,13 @@ function Grid(height, width, gridElement) {
     this.height = height;
     this.width = width;
     this.name = name;
+    this.sampleArray = new Array(this.width).fill().map(cell => new Array(this.height).fill(0))
     this.clickCheck = false
     this.element = gridElement
     this.currentCell = null
     this.questionsArray = []
     this.fillGrid()
+    this.pointsEarned = 0
     // this.button = document.getElementById("answerButton").addEventListener('click', this.compareAnswer)
     this.neighbors = [
         {
@@ -43,45 +45,61 @@ function Grid(height, width, gridElement) {
             y: -1
         }
     ]
+    this.element.addEventListener('click', this.clickHandler.bind(this))
 }
 
 Grid.prototype = {
 
     fillGrid: function () {
-        this.element.addEventListener('click', this.clickHandler.bind(this))
-        this.sampleArray = new Array(this.width).fill().map(cell => new Array(this.height).fill(0))
-
-
-
-        this.sampleArray.elementProperty = "elementProperty"
-
-
         this.sampleArray.forEach((_, colIndex) => {
-            // console.log(this.questionsArray)
-            let categoryID = Math.floor(Math.random() * 17000)
-            let catURL = "http://jservice.io/api/category/?id=" + categoryID
-            fetch(catURL)
-                .then(res => res.json())
-                .then(category => {
-                    console.log("Per col", category)
 
-                    const colElement = document.createElement("section")
-                    colElement.dataset.col = colIndex
-                    this.element.appendChild(colElement)
+            this.findValidCategories(colIndex)
 
-
-
-
-                    _.forEach((question, rowIndex) => {
-                        // console.log(category)
-                        this.sampleArray[colIndex][rowIndex] = new Cell(colIndex, rowIndex, colElement, this, category)
-                        // cell.element.dataset.category = question.categoryName
-                    })
-
-                })
         })
     },
 
+    findValidCategories: function (colIndex) {
+        this.findCategory()
+            .then(category => {
+                const validQuestions = this.findValidQuestions(category)
+
+                if (validQuestions.length < 5) {
+                    this.findValidCategories(colIndex)
+                    return
+                }
+
+                category.clues = validQuestions
+                this.createColumn(colIndex, category)
+            })
+    },
+
+    findCategory: function () {
+        let catURL = "http://jservice.io/api/category/?id=" + Math.floor(Math.random() * 17000)
+        return fetch(catURL).then(res => res.json())
+    },
+
+    findValidQuestions: function (category) {
+        const containsHTML = text => /(<.+?>)|(&.{1,6}?;)/.test(text)
+
+        // const validAnswers = category.clues.filter(({ answer }) => !containsHTML(answer))  // with destructuring
+        const validQuestions = category.clues.filter(question => !containsHTML(question.answer))
+
+        return validQuestions
+    },
+
+    createColumn: function (colIndex, category) {
+        const colElement = document.createElement("section")
+        colElement.dataset.col = colIndex
+        this.element.appendChild(colElement)
+
+        console.log("samplearray", this.sampleArray)
+
+        this.sampleArray[colIndex].forEach((_, rowIndex) => {
+
+            this.sampleArray[colIndex][rowIndex] = new Cell(colIndex, rowIndex, colElement, this, category)
+
+        })
+    },
 
 
     clickHandler: function (event) {
@@ -140,18 +158,22 @@ Grid.prototype = {
         document.getElementById("answer").removeEventListener('click', this.boundEvent)
         const userResponse = document.getElementById("userAnswer").value
         if (userResponse.toLowerCase() === clickedCell.category.clues[clickedCell.colIndex - 1].answer.toLowerCase()) {
-            alert(" you win! ")
+            this.pointsEarned += (clickedCell.colIndex * 100)
+            document.getElementById("pointsEarned").textContent = "Points Earned " + this.pointsEarned
+
+            alert(" you are correct! ")
         } else {
             alert(" you lose! Try studying up, the correct answer was " + clickedCell.category.clues[clickedCell.colIndex - 1].answer)
-            let correctAnswerSearch = document.createElement("a")
-            document.createElement("div")
-            let search = `https://api.duckduckgo.com/?q=${clickedCell.category.clues[clickedCell.colIndex - 1].answer}`
+            let duckCredit = document.getElementById("creditDuck")
+            let search = `https://duckduckgo.com/`
             let encodedSearch = encodeURI(search)
             // below link makes it appear as a text file, if it exist, above links to a duckduckgo.search display, like google but more secret
             // `https://api.duckduckgo.com/?q=${clickedCell.category.clues[clickedCell.colIndex - 1].answer}&format=json&pretty=1`
-            correctAnswerSearch.setAttribute('href', encodedSearch)
-            correctAnswerSearch.textContent = clickedCell.category.clues[clickedCell.colIndex - 1].answer
-            document.body.appendChild(correctAnswerSearch)
+            // correctAnswerSearch.setAttribute('href', encodedSearch)
+            // correctAnswerSearch.textContent = "Results from DuckDuckGo"
+            duckCredit.textContent = "Results from DuckDuckGo"
+            duckCredit.setAttribute('href', encodedSearch)
+
             this.fetchAPI(clickedCell)
         }
     },
