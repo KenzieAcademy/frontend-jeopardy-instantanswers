@@ -17,6 +17,7 @@ h1 {
     border: solid 2px black;
     display: flex;
     background-color: blue;
+    color: yellow;
 }
 
 .row {
