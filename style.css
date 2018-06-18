@@ -1,0 +1,15 @@
+.cell {
+    height: 75px;
+    width: 75px;
+    background-color: blue;
+    margin: 1px;
+    border: 1px solid yellow;
+}
+
+#grid {
+    display: flex;
+    justify-content: center;
+    border: 1px solid grey;
+    width: 100%;
+    background-color: black;
+}
