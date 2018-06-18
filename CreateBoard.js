@@ -52,7 +52,6 @@ CreateBoard.prototype.fetchQuestions = function( category , currentCol ){
             this.grid[rowNum][currentCol].element.dataset.answer = values[rowNum-1].answer;
             this.grid[rowNum][currentCol].element.dataset.question = values[rowNum-1].question;
           }
-          console.log("hey", category , currentCol );
         })
 }
 

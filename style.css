@@ -65,3 +65,22 @@ main {
 #totalpoints{
   margin-left: 3vmin;
 }
+
+#image{
+  background-size: auto;
+  max-width: 90vw;
+}
+
+#duck {
+  height: 10vmin;
+  width: 10vmin;
+}
+
+#search {
+  align-self: flex-end;
+  margin-bottom: 1vmin;
+}
+
+#info {
+  margin-bottom: 1vmin;
+}
