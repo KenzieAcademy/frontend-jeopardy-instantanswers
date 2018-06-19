@@ -18,6 +18,7 @@ Cell.prototype = {
         this.element.dataset.cell = this.cellIndex
         this.element.style.width = this.width
         this.element.style.height = this.height
+        this.element.instanceOfCell = this
 
         this.element.classList.add(...this.styleClasses)
     },

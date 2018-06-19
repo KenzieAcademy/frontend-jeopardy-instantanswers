@@ -8,29 +8,31 @@ function Grid({ numberOfColumns, numberOfCellsInColumn, parentElement, cellWidth
     
     this.createGameGridArray()
     this.createColumn()
-
 }
 
 
 Grid.prototype = {
     createGameGridArray: function () {
-        return Array(this.numberOfCellsInColumn).fill('0').map(() => new Array(this.numberOfColumns).fill('0'))
+        this.cellArray = new Array(this.numberOfCellsInColumn).fill().map(() => new Array(this.numberOfColumns).fill())
     },
 
 
     createColumn: function () {
-        this.cellArray = []
-        for (let colIndex in this.createGameGridArray()) {
+        for (let colIndex in this.cellArray) {
             const colElement = document.createElement("div")
             colElement.classList.add("column")
             
-            this.cellArray.push([])
             this.parentElement.appendChild(colElement)
-            for (let cellIndex in this.createGameGridArray()[colIndex]) {
-                const cell = new Cell(colIndex, cellIndex, this.cellWidth, this.cellHeight, this.defaultCellStyleClasses)
-                this.cellArray[colIndex].push(cell)
-                colElement.appendChild(cell.element)
-            }
+            this.createCell(colIndex, colElement)
+        }
+    },
+    
+    createCell: function (colIndex, colElement) {
+        console.log("createCell", this.cellArray[colIndex])
+        for (let cellIndex in this.cellArray[colIndex]) {
+            const cell = new Cell(colIndex, cellIndex, this.cellWidth, this.cellHeight, this.defaultCellStyleClasses)
+            this.cellArray[colIndex][cellIndex] = cell
+            colElement.appendChild(cell.element)
         }
     },
 
