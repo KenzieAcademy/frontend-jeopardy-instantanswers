@@ -4,7 +4,7 @@ body {
 .board {
     display: flex;
     justify-content: center;
-    background-color: blue;
+    background-color: white;
     margin-bottom: 20px;
     width: fit-content;
     height: fit-content;
@@ -12,21 +12,33 @@ body {
 
 .cell {
     display: flex;
-    width: 80px;
+    width: 100px;
     height: 80px;
-    border: 3px solid black;
+    background-color: blue;
+    border: 2px solid black;
+    border-radius: 3px;
+    color: white;
+    font-size: 10px;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .lightcell {
-    
+    display: flex;
+    width: 85px;
+    height: 85px;
+    border: 3px solid black;
+    color: forestgreen;
+    font-size: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 #output {
     display: flex;
     background-color: blue;
     color: azure;
-    border: 3px solid lightgray;
-    margin-bottom: 20px;
     width: fit-content;
     height: fit-content;
 }
@@ -37,5 +49,9 @@ h1 {
 }
 #input {
     background-color: black;
-    color: azure;
+    color: paleturquoise;
+}
+
+.category {
+    background-color: navajowhite;
 }

@@ -1,18 +1,12 @@
-const output = document.getElementById("output");
-const hiddenAnswer = document.getElementById("hiddenAnswer");
-const ans = hiddenAnswer.querySelector("h2");
-const guessResponse = document.getElementById("guessResponse");
-const guessResponseText = guessResponse.querySelector("p");
-let questionValue = 0
-// fetch("http://jservice.io/api/categories?count=100")
-//     .then(responseObject => responseObject.json())
-//     .then(hydratedBody => {
-//         console.log(hydratedBody)
-//         output.dataset.characterId = hydratedBody.id
-//         output.querySelector("h1").textContent = `${hydratedBody[0].question}`
-//         ans.dataset.characterId = `${hydratedBody[0].answer}`.toLowerCase()
-//         questionValue = `${hydratedBody[0].value}`
-//     })
+
+
+
+// const output = document.getElementById("output");
+// const hiddenAnswer = document.getElementById("hiddenAnswer");
+// const ans = hiddenAnswer.querySelector("h2");
+// const guessResponse = document.getElementById("guessResponse");
+// const guessResponseText = guessResponse.querySelector("p");
+// let questionValue = 0
 
     
 

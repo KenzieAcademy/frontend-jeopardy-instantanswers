@@ -1,1 +1,1 @@
-const grid1 = new jeopardyGrid( 6, 5, document.getElementById("gridHolder"))
+const grid1 = new JeopardyGrid( 6, 6, document.getElementById("gridHolder"))

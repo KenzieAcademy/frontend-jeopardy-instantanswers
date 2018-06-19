@@ -1,4 +1,4 @@
-GET http://jservice.io/api/random?count=6
+GET http://jservice.io/api/categories?count=100
 ###
 
 GET https://api.duckduckgo.com/?q=simpsons+characters&format=json&pretty=1
