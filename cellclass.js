@@ -20,6 +20,7 @@ Cell.prototype.createCell = function () {
 Cell.prototype.addText = function (element) {
     if (this.colIndex === 0) {
         this.element.textContent = this.category.title
+        this.element.classList.add("topRow")
     } else {
         this.element.textContent = Number(this.colIndex * 100)
     }

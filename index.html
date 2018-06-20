@@ -10,14 +10,25 @@
 </head>
 
 <body>
-    <h4 id="pointsEarned">Points Earned:</h4>
+    <header>Hello Jeopardy</header>
+    <div id="playWrapper">
+        <div id="pointWrapper">
+            <h4 id="pointsEarned">Points Earned: 000</h4>
+            <h4 id="pointsPossible">Points Possible: 000</h4>
+        </div>
+        <div id="responseWrapper">
+            <div id="questionTitleOutput">Category</div>
+            <div id="questionOutput">Question</div>
+            <div id="pointValue">Points: 0</div>
+            <button id="answer">What is...</button>
+            <input id="userAnswer" value="Type Answer Here">
+        </div>
+    </div>
+
+
     <main id="main"></main>
 
-    <div id="questionTitleOutput">Category</div>
-    <div id="questionOutput">Question</div>
-    <div id="pointValue">Points: 0</div>
-    <input id="userAnswer">
-    <button id="answer">Answer</button>
+
     <div id="displayAPI"></div>
     <div id="displayPicture"></div>
     <a id="creditDuck"></a>
