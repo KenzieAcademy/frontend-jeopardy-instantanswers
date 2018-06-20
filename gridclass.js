@@ -105,8 +105,10 @@ Grid.prototype = {
         this.clickCheck = false;
         document.getElementById("answer").removeEventListener('click', this.boundEvent);
         const userResponse = document.getElementById("userAnswer").value;
+        //removes back slashes from answer
+        clickedCell.category.clues[clickedCell.colIndex - 1].answer = clickedCell.category.clues[clickedCell.colIndex - 1].answer.replace(/[\\]+/g, "")
         if (clickedCell.category.clues[clickedCell.colIndex - 1].answer.toLowerCase().includes(userResponse.toLowerCase()) && userResponse.toLowerCase().length > 2) {
-            // if (userResponse.toLowerCase() === clickedCell.category.clues[clickedCell.colIndex - 1].answer.toLowerCase()) {
+
             this.pointsEarned += (clickedCell.colIndex * 100);
             document.getElementById("pointsEarned").textContent = "Points Earned: " + this.pointsEarned;
             clickedCell.element.classList.add("correctResponse")
