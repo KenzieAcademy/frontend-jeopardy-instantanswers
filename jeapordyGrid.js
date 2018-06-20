@@ -17,7 +17,7 @@ function JeopardyGrid( init ){
 JeopardyGrid.prototype = Object.create(Grid.prototype);
 JeopardyGrid.prototype.constructor = JeopardyGrid;
 
-Grid.prototype.createCell = function( rowIndex , columnIndex ){
+JeopardyGrid.prototype.createCell = function( rowIndex , columnIndex ){
   const cell = new JeapordyCell( rowIndex , columnIndex );
   this.grid[rowIndex].rowElement.appendChild( cell.element );
 

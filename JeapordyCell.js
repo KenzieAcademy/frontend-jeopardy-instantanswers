@@ -14,7 +14,7 @@ JeapordyCell.prototype.createElement = function(){
   this.element.dataset.isClicked = false;
   this.element.classList.add( 'cell' );
   if( this.row >= 1 ){
-    this.element.textContent = this.row * 200;
+    this.element.textContent = '$' + this.row * 200;
     this.element.dataset.value = this.row * 200;
   }
 }
