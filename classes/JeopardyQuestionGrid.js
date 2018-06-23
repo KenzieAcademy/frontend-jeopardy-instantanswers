@@ -1,5 +1,7 @@
-const JeopardyQuestionGrid = function (config) {
+const JeopardyQuestionGrid = function (config, titleGrid) {
     JeopardyGrid.call(this, config)
+    this.titleGrid = titleGrid
+    
 }
 
 JeopardyQuestionGrid.prototype = Object.create(JeopardyGrid.prototype)

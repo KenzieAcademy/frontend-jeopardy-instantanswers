@@ -25,4 +25,4 @@ const titleGridConfig = {
 }
 
 const titleGrid = new JeopardyTitleGrid(titleGridConfig)
-const questionGrid = new JeopardyQuestionGrid(questionGridConfig)
+const questionGrid = new JeopardyQuestionGrid(questionGridConfig, titleGrid)

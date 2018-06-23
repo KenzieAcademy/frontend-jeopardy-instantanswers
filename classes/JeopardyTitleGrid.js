@@ -16,7 +16,8 @@ JeopardyTitleGrid.prototype.createCell = function (colIndex, colElement) {
         this.categoryPromises[colIndex]
             .then(category => {
                 this.categories.push(category)
-                cell.element.appendChild(document.createTextNode(category.title))
+                uppercaseTitle = category.title.toUpperCase()
+                cell.element.appendChild(document.createTextNode(uppercaseTitle))
             })
     }
 }
