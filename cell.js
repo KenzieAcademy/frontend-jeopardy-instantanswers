@@ -1,7 +1,6 @@
 'use strict'
 
-function Cell(rowIndex, colIndex, rowElement, cellElement, category) {
-    this.category = category
+function Cell(rowIndex, colIndex, rowElement, cellElement) {
     this.rowIndex = rowIndex
     this.colIndex = colIndex
     this.rowElement = rowElement
