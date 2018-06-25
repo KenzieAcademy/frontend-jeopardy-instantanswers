@@ -23,5 +23,16 @@ JeopardyQuestionGrid.prototype.createCell = function (colIndex, colElement) {
         const cell = new Cell(colIndex, cellIndex, this.cellWidth, this.cellHeight, this.defaultCellStyleClasses)
         this.cellArray[colIndex][cellIndex] = cell
         colElement.appendChild(cell.element)
+
+        this.categoryPromises[colIndex]
+            .then(category => {
+                this.categories.push(category)
+                const clue = category.clues[cellIndex]
+                const paragraphElement = document.createElement('p')
+                paragraphElement.classList.add('question')
+                paragraphElement.dataset.clueQuestion = clue.question
+                paragraphElement.textContent = "$" + clue.value
+                cell.element.appendChild(paragraphElement)
+            })
     }
 }
