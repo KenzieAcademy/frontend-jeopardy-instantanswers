@@ -1,7 +1,10 @@
 const JeopardyQuestionGrid = function (config, titleGrid) {
     JeopardyGrid.call(this, config)
     this.titleGrid = titleGrid
-
+    this.setupEvents()
+    this.inputBox =  document.getElementById("answer")
+    this.button = document.getElementById("submit")
+    this.cellThatUserJustSelected = undefined
 }
 
 JeopardyQuestionGrid.prototype = Object.create(JeopardyGrid.prototype)
@@ -31,6 +34,7 @@ JeopardyQuestionGrid.prototype.createCell = function (colIndex, colElement) {
                 const paragraphElement = document.createElement('p')
                 paragraphElement.classList.add('question')
                 paragraphElement.dataset.clueQuestion = clue.question
+                paragraphElement.dataset.clueAnswer = clue.answer
                 paragraphElement.textContent = "$" + clue.value
                 cell.element.appendChild(paragraphElement)
             })
@@ -48,6 +52,11 @@ JeopardyQuestionGrid.prototype.handleEvent = function ( event ) {
         // Set <p> text to question
         event.target.firstChild.textContent = q
 
+        // Save target for later when user tries to answer
+        if ( this.cellThatUserJustSelected === undefined ) {
+            this.cellThatUserJustSelected = event.target
+        }
+
         // remove the 'unclicked' class
         event.target.classList.remove( 'unclicked' )
     }
@@ -55,5 +64,20 @@ JeopardyQuestionGrid.prototype.handleEvent = function ( event ) {
 
 // Add the event listener to the board. This needs to be called in init.js
 JeopardyQuestionGrid.prototype.setupEvents = function () {
-    this.parentElement.addEventListener( 'click', this.handleEvent )
+    this.parentElement.addEventListener( 'click', this.handleEvent.bind(this) )
+    const button = document.getElementById("submit")
+
+    button.addEventListener( 'click', this.checkAnswer.bind(this) )
+}
+
+JeopardyQuestionGrid.prototype.checkAnswer = function () {
+    // debugger
+    if ( this.cellThatUserJustSelected.firstChild.dataset.clueAnswer === this.inputBox.value ) {
+        // do cor
+        console.log("correct")
+    } else {
+        // do incorrect answer stuff
+        console.log("incorrect")
+    }
+
 }
