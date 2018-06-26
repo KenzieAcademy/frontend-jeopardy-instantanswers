@@ -26,3 +26,4 @@ const titleGridConfig = {
 
 const titleGrid = new JeopardyTitleGrid(titleGridConfig)
 const questionGrid = new JeopardyQuestionGrid(questionGridConfig, titleGrid)
+questionGrid.setupEvents()

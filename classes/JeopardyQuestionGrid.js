@@ -1,7 +1,7 @@
 const JeopardyQuestionGrid = function (config, titleGrid) {
     JeopardyGrid.call(this, config)
     this.titleGrid = titleGrid
-    
+
 }
 
 JeopardyQuestionGrid.prototype = Object.create(JeopardyGrid.prototype)
@@ -11,7 +11,7 @@ JeopardyQuestionGrid.prototype.createColumn = function () {
     for (let colIndex in this.cellArray) {
         const colElement = document.createElement("div")
         colElement.classList.add("column")
-        
+
         this.parentElement.appendChild(colElement)
         this.createCell(colIndex, colElement)
     }
@@ -35,4 +35,23 @@ JeopardyQuestionGrid.prototype.createCell = function (colIndex, colElement) {
                 cell.element.appendChild(paragraphElement)
             })
     }
+}
+
+// handle the events. This needs to be passed to an event listener to work
+JeopardyQuestionGrid.prototype.handleEvent = function ( event ) {
+    debugger
+    // Is the click target unclicked?
+    if ( event.type === 'click' && event.target.classList[1] === 'unclicked' ) {
+        // if so =>
+        // Get the question data from the clueQuestion var on dataset of the <p> tag
+        let q = event.target.firstChild.dataset.clueQuestion
+
+        // Set <p> text to question
+        event.target.firstChild.textContent = q
+    }
+}
+
+// Add the event listener to the board. This needs to be called in init.js
+JeopardyQuestionGrid.prototype.setupEvents = function () {
+    this.parentElement.addEventListener( 'click', this.handleEvent )
 }
