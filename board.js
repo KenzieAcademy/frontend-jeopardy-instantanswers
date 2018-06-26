@@ -23,7 +23,8 @@ Board.prototype = {
       for (let colIndex = 0; colIndex < this.width; colIndex++) {
         this.grid[rowIndex][colIndex] = new Cell(rowIndex, colIndex, rowElement);
       }
-
+      const randomOffset = Math.floor(Math.random() * 18000) + 1;
+      this.fetchData(rowIndex, randomOffset);
       this.fetchData(rowIndex, 1);
     });
   },
