@@ -12,7 +12,3 @@ Fetch.prototype.fetchCategory = async function () {
     const response = await fetch(this.baseURI + this.categoryID)
     return response.json()
 }
-
-
-
-

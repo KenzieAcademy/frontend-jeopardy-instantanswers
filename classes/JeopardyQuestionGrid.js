@@ -39,15 +39,17 @@ JeopardyQuestionGrid.prototype.createCell = function (colIndex, colElement) {
 
 // handle the events. This needs to be passed to an event listener to work
 JeopardyQuestionGrid.prototype.handleEvent = function ( event ) {
-    debugger
     // Is the click target unclicked?
     if ( event.type === 'click' && event.target.classList[1] === 'unclicked' ) {
         // if so =>
         // Get the question data from the clueQuestion var on dataset of the <p> tag
-        let q = event.target.firstChild.dataset.clueQuestion
+        const q = event.target.firstChild.dataset.clueQuestion
 
         // Set <p> text to question
         event.target.firstChild.textContent = q
+
+        // remove the 'unclicked' class
+        event.target.classList.remove( 'unclicked' )
     }
 }
 

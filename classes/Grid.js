@@ -5,7 +5,7 @@ function Grid({ numberOfColumns, numberOfCellsInColumn, parentElement, cellWidth
     this.cellWidth = cellWidth
     this.cellHeight = cellHeight
     this.defaultCellStyleClasses = defaultCellStyleClasses
-    
+
     this.createGameGridArray()
     this.createColumn()
 }
@@ -21,12 +21,12 @@ Grid.prototype = {
         for (let colIndex in this.cellArray) {
             const colElement = document.createElement("div")
             colElement.classList.add("column")
-            
+
             this.parentElement.appendChild(colElement)
             this.createCell(colIndex, colElement)
         }
     },
-    
+
     createCell: function (colIndex, colElement) {
         console.log("createCell", this.cellArray[colIndex])
         for (let cellIndex in this.cellArray[colIndex]) {
@@ -46,4 +46,4 @@ Grid.prototype = {
         }
         return null
     },
-}   
+}

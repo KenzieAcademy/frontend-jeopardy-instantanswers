@@ -1,5 +1,5 @@
 const JeopardyGrid = function (config) {
-    
+
     this.categoryIDs = config.categories
     this.categoryPromises = []
     this.categories = []
