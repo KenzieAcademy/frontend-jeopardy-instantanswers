@@ -1,0 +1,31 @@
+#jep-board {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    margin: 0 auto;
+    background-color: gray;
+    max-width: fit-content;
+}
+
+#categories {
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    border: 10px solid black;
+    max-width: fit-content;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.cell {
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+}
