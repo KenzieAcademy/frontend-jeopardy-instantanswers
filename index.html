@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jeopardy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main></main>
+
+    <h3>Current Score:</h3>
+    <div id="userScore"></div>
+    <h3>Show me what you got and answer the question below.</h3>
+    <main id="outputQuestion"></main>
+    <input type="text" id="textInput">
+
+    <button id="submitAnswer" onclick="checkAnswer()">Submit</button>
+
+    <p><b>Question Help:</b></p>
+    <p id="questionHelpID"></p>
+
+    <script src="Cell.js"></script>
+    <script src="Grid.js"></script>
+    <script src="JeopardyGrid.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
